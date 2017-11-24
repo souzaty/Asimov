@@ -8,6 +8,6 @@
 
 # This is a theme for wordpress
 
-** Attention: ** This is a wordpress theme developed for the sole purpose of study.
+**Attention:** This is a wordpress theme developed for the sole purpose of study.
 
 **Features:**
