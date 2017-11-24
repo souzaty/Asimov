@@ -52,7 +52,15 @@ Aula Styles
 .content__slide { padding: 25px 0; }
 
 /* Serviços */
-.content__services { background: #ec008c; padding: 25px 0; color: #fefefe; }
+.content__services { background: #ec008c; padding: 25px 0 0 0; color: #fefefe; }
+
+.svg-wave-hero {
+    bottom: 0;
+    left: 0;
+    fill: white;
+    width: 400px;
+    height: 70px;
+}
 
 /* Meio */
 .content__middle { padding: 25px 0; }
