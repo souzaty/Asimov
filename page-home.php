@@ -9,6 +9,9 @@
             </div>
         </section>
         <section class="content__services">
+            <svg class="angle-top" viewBox="0 0 1280 65" xmlns="http://www.w3.org/2000/svg">
+        		<path d="M1280 0v65L0 0" fill="#FFF" fill-rule="evenodd"></path>
+        	</svg>
             <div class="container">
                 <div class="row">
                     <h1>Serviços</h1>
