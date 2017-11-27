@@ -137,7 +137,7 @@ header {
     background: transparent;
     color:#cdcdcd;
     border: none;
-    border-left: 1px solid #4870EA;
+    border-left: 1px solid #7622ed;
     transition: all 0.5s;
 }
 .top__search--input:focus, .top__search--input:active {
@@ -148,12 +148,11 @@ header {
 .top__search--submit {
     height: 40px;
     padding: 0 20px;
-    background: rgba(0,0,0,0.3);
+    background: #7622ed;
     display: inline-block;
     margin: 0;
     font-size: 14px;
     font-weight: 400;
-    color: #ec008c;
     line-height: 1.42857143;
     text-align: center;
     white-space: nowrap;
@@ -167,11 +166,11 @@ header {
     user-select: none;
     background-image: none;
     border: none;
-    border-right: 1px solid #4870EA;
+    border-right: 1px solid #7622ed;
     border-radius: 0;
 }
 .top__search--submit:hover {
-    background: rgba(0,0,0,0.7);
+    background: #690ced;
 }
 .top__search--input::-webkit-input-placeholder {
     color: #fff;
