@@ -4,5 +4,5 @@
     <p class="post__publish">Publicado em <?php echo get_the_date(); ?> por <?php the_author(); ?></p>
     <p class="post__category">Categorias: <?php the_category(' '); ?></p>
     <p><?php the_tags('Tags: ', ', ') ?></p>
-    <p><?php the_content(); ?></p>
+    <p><?php the_excerpt(); ?></p>
 </article>

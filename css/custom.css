@@ -362,7 +362,16 @@ header {
 /* Section Service */
 .services {
     background-image: linear-gradient(150deg, #8F4DED 0%, #4870EA 100%);
-    padding: 0; color: #fefefe;
+    padding: 0;
+    color: #fefefe;
+}
+.services h3 {
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.services p {
+    margin-bottom: 10px;
+    font: 100 1em/1.3 Roboto,Arial,Helvetica,Sans-serif;
 }
 .angle-top {
     display: -webkit-box;
@@ -449,6 +458,16 @@ header {
     margin-bottom: 5px;
     font-size: 0.9em;
     color: #454555;
+}
+.post__miniature {
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.post__miniature--large {
+    max-height: 300px;
+}
+.post__miniature--medium {
+    max-height: 190px;
 }
 
 /* Widgets
