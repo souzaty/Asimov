@@ -1,22 +1,9 @@
 <?php get_header(); ?>
 <div class="content">
     <main>
-        <section class="content__slide">
-            <div class="container">
-                <div class="row">
-                </div>
-            </div>
-        </section>
-        <section class="content__services">
-            <div class="container">
-                <div class="row">
-                </div>
-            </div>
-        </section>
         <section class="content__middle">
             <div class="container">
                 <div class="row">
-                    <aside class="content__left-bar col-md-3"></aside>
                     <div class="content__news col-md-9">
                     <!-- The Loop -->
                         <?php
@@ -36,10 +23,14 @@
                           ?>
                     <!-- End Loop -->
                     </div>
+                    <div class="col-md-3">
+                        <aside class="sidebar__right">
+                            <?php get_sidebar('blog'); ?>
+                        </aside>
+                    </div>
                 </div>
             </div>
         </section>
-        <section class="content__map container"></section>
     </main>
 </div>
 <?php get_footer(); ?>

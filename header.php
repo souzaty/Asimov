@@ -7,11 +7,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" rel="stylesheet">
         <!-- Function load styles -->
         <?php wp_head(); ?>
-<script>
-$('.search-button').click(function(){
-  $(this).parent().toggleClass('open');
-});
-</script>
+
     </head>
     <body <?php body_class(); ?>>
         <header>
@@ -54,9 +50,9 @@ $('.search-button').click(function(){
                                 <?php $custom_logo_id = get_theme_mod( 'custom_logo' );
                                         $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
                                         if ( has_custom_logo() ) {
-                                                echo '<img class="header__logo" src="'. esc_url( $logo[0] ) .'">';
+                                                echo '<img class="" src="'. esc_url( $logo[0] ) .'">';
                                         } else {
-                                                echo '<h1>'. get_bloginfo( 'name' ) .'</h1>';
+                                                echo '<h1 class="header__logo--big" id="test">'. get_bloginfo( 'name' ) .'</h1>';
                                         } ?>
                             </a>
                         </div>
@@ -66,4 +62,5 @@ $('.search-button').click(function(){
                     </div>
                 </div>
             </div>
+        </div>
         </header>

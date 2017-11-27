@@ -1,16 +1,16 @@
 <?php
 // Funtion load scripts
 function load_scripts() {
-
-    wp_enqueue_style( 'custom', get_template_directory_uri() . '/css/custom.css', array(), '1.0', 'all' );
-    wp_enqueue_script( 'template', get_template_directory_uri() . '/js/template.js', array(), null, true);
-
-    wp_enqueue_style( 'Bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', array(), '3.3.7', 'all' );
-    wp_enqueue_script( 'Bootstrap JS', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), null, true);
-
-    wp_enqueue_style( 'FontAwesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', array(), '', 'all' );
-}
-add_action( 'wp_enqueue_scripts', 'load_scripts' );
+    // bootstrap scripts
+        wp_enqueue_style( 'Bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', array(), '3.3.7', 'all' );
+        wp_enqueue_script( 'Bootstrap JS', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), null, true);
+    // Theme scripts
+        wp_enqueue_style( 'custom', get_template_directory_uri(). '/css/custom.css', array(), '1.0', 'all' );
+        wp_enqueue_script( 'template', get_template_directory_uri(). '/js/template.js', array(), null, true);
+    // Font awesome
+        wp_enqueue_style( 'FontAwesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', array(), '', 'all' );
+    }
+    add_action( 'wp_enqueue_scripts', 'load_scripts' );
 
 // Funtion Main Menu
     register_nav_menus(
@@ -18,12 +18,39 @@ add_action( 'wp_enqueue_scripts', 'load_scripts' );
             'menu_principal' => 'Menu Principal'
         )
     );
+
 // Funtion Footer Menu
     register_nav_menus(
         array(
             'menu_footer' => 'Menu Rodapé'
         )
     );
+
+// Register Sidebar
+if (function_exists('register_sidebar')){
+	register_sidebar(
+		array(
+			'name'		=> 'Sidebar home',
+			'id'		=> 'sidebar-1',
+			'description'	=> 'Barra lateral da página home',
+			'before_widget'	=> '<div class="widget__wrapper">',
+			'after_widget'	=> '</div>',
+			'before_title'	=> '<h2 class="widget__title">',
+			'after_title'	=> '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'		=> 'Sidebar blog',
+			'id'		=> 'sidebar-2',
+			'description'	=> 'Barra lateral da página blog',
+			'before_widget'	=> '<div class="widget__wrapper">',
+			'after_widget'	=> '</div>',
+			'before_title'	=> '<h2 class="widget__title">',
+			'after_title'	=> '</h2>',
+		)
+	);
+}
 
 // Include Custom Posts Theme
 include 'includes/custom-posts.php';

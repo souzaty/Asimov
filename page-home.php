@@ -1,14 +1,14 @@
 <?php get_header(); ?>
 <div class="content">
     <main>
-        <section class="content__slide">
+        <section class="slide">
             <div class="container">
                 <div class="row">
                     <h1>Slide</h1>
                 </div>
             </div>
         </section>
-        <section class="content__services">
+        <section class="services">
             <svg class="angle-top" viewBox="0 0 1280 65" xmlns="http://www.w3.org/2000/svg">
         		<path d="M1280 0v65L0 0" fill="#FFF" fill-rule="evenodd"></path>
         	</svg>
@@ -22,17 +22,21 @@
                 <polygon points="164.5 58.5 245 11 349.43 58.5 164.5 58.5" style="opacity: 0.2"></polygon>
             </svg>
         </section>
-        <section class="content__middle">
+        <section class="middle">
             <div class="container">
                 <div class="row">
-                    <aside class="content__left-bar col-md-3"></aside>
-                    <div class="content__news col-md-9">
+                    <div class="col-md-3">
+                        <aside class="sidebar__left">
+                            <?php get_sidebar('home'); ?>
+                        </aside>
+                    </div>
+                    <div class="news col-md-9">
                         <p>Esta será a área de notícias da home.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="content__map container"></section>
+        <section class="map container"></section>
     </main>
 </div>
 <?php get_footer(); ?>
