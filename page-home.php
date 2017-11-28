@@ -68,7 +68,7 @@
                             endforeach;
                             ?>
                         </div>
-                    </div>
+                    </div><!-- comentário -->
                 </div>
             </div>
         </section>
