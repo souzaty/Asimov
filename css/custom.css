@@ -21,6 +21,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -73,7 +74,7 @@ h3 {font-size: 2em; line-height: 135%;}
 h4 {font-size: 1.5em; line-height: 135%;}
 h5 {font-size: 1em; line-height: 135%;}
 h6 {font-size: 0.75em; line-height: 135%;}
-p {font-size: 1em; line-height: 125%;}
+p {font-size: 1em; line-height: 125%; margin-bottom:10px;}
 
 /* Section */
 section>.container {
@@ -489,14 +490,48 @@ section>.container {
     text-decoration: none;
     border-bottom: 1px dotted #efefef;
 }
+.widget__wrapper {
+    margin-bottom: 20px;
+}
 .widget__wrapper ul li {
     display: block;
     border-bottom: 1px dotted #dfdfdf;
 }
 .widget__wrapper ul li a {
     padding: 15px 0;
+    display: inline-block;
 }
 
+/* Widget search */
+.screen-reader-text {
+    display: none;
+}
+input#s {
+    height: 40px;
+    padding: 0 15px;
+}
+#searchsubmit {
+    height: 40px;
+    padding: 0 20px;
+    background: #7622ed;
+    display: inline-block;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    white-space: nowrap;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: none;
+    border-radius: 0;
+    content: 'opa'
+}
 /* Footer
 --------------------------------- */
 footer {
