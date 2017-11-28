@@ -7,10 +7,9 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" rel="stylesheet">
         <!-- Function load styles -->
         <?php wp_head(); ?>
-
     </head>
     <body <?php body_class(); ?>>
-        <header>
+        <header class="header__content">
             <div class="header__top-bar">
                 <div class="container">
                     <div class="row">
@@ -52,7 +51,7 @@
                                         if ( has_custom_logo() ) {
                                                 echo '<img class="" src="'. esc_url( $logo[0] ) .'">';
                                         } else {
-                                                echo '<h1 class="header__logo--big" id="test">'. get_bloginfo( 'name' ) .'</h1>';
+                                                echo '<h1 class="header__logo--big">'. get_bloginfo( 'name' ) .'</h1>';
                                         } ?>
                             </a>
                         </div>
