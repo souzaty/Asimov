@@ -72,7 +72,7 @@ add_filter('user_contactmethods', 'bl_profile_fields');
 function bl_profile_fields($profile_fields) {
   // Adicionar novos campos
   $profile_fields['twitter']  = 'Usuário do Twitter';
-  $profile_fields['facebook'] = 'URL para Facebook';
+  $profile_fields['facebook'] = 'URL para facebook';
 
   // Remover campos existentes
   unset($profile_fields['aim']);
@@ -99,9 +99,203 @@ function bl_profile_fields($profile_fields) {
 }
 add_action( 'after_setup_theme', 'themename_custom_logo_setup' );
 
+// Star Custom posts
 
+  // Start CPT social media
 
-//Styling wp-login page
+  add_action('init', 'social_media_links_register');
+
+  function social_media_links_register() {
+      $eventos_permalink = 'social-media';
+      $labels = array(
+
+  			'name' => __('Social media', 'links social media.'),
+
+  			'singular_name' => __('Social media', 'post type singular name'),
+
+  			'add_new_item' => __('Adicionar novos links'),
+
+  			'edit_item' => __('Editar Sala de Apoio'),
+
+  			'new_item' => __('Nova Sala de Apoio Item'),
+
+  			'view_item' => __('Ver item da salas de apoio'),
+
+  			'parent_item_colon' => ''
+
+  	);
+
+    $args = array(
+
+			'labels' => $labels,
+
+			'public' => true,
+
+			'publicly_queryable' => true,
+
+			'show_ui' => true,
+
+			'query_var' => true,
+
+			'menu_icon' => 'dashicons-admin-home',
+
+			'rewrite' => array('slug' => 'evento','with_front' => false),
+
+			'capability_type' => 'post',
+
+			'hierarchical' => false,
+
+			'menu_position' => 60,
+
+			'supports' => array(''),
+
+	);
+
+	register_post_type( 'social_media' , $args );
+
+	flush_rewrite_rules();
+
+}
+
+add_action("admin_init", "campos_personalizados_social_media");
+
+function campos_personalizados_social_media(){
+
+	add_meta_box("facebook", "Facebook URL", "facebook", "social_media", "normal", "low");
+
+	add_meta_box("twitter", "Twitter URL", "twitter", "social_media", "normal", "low");
+
+	add_meta_box("instagram", "Instagram URL", "instagram", "social_media", "normal", "low");
+
+	add_meta_box("github", "Github URL", "github", "social_media", "normal", "low");
+
+    add_meta_box("linkedin", "Linkedin URL", "linkedin", "social_media", "normal", "low");
+
+}
+
+function facebook() {
+
+	global $post;
+
+	$custom = get_post_meta($post->ID);
+
+	$facebook = $custom["facebook"][0];
+
+	?>
+
+	<input type="text" name="facebook" value="<?php echo $facebook; ?>" />
+
+<?php
+
+}
+
+function twitter() {
+
+	global $post;
+
+	$custom = get_post_meta($post->ID);
+
+	$twitter = $custom["twitter"][0];
+
+	?>
+
+	<input type="text" name="twitter" value="<?php echo $twitter; ?>" />
+
+<?php
+
+}
+
+function instagram() {
+
+	global $post;
+
+	$custom = get_post_meta($post->ID);
+
+	$instagram = $custom["instagram"][0];
+
+	?>
+
+	<input type="text" name="instagram" value="<?php echo $instagram; ?>" />
+
+<?php
+
+}
+
+function github() {
+
+	global $post;
+
+	$custom = get_post_meta($post->ID);
+
+	$github = $custom["github"][0];
+
+	?>
+
+	<input type="text" name="github" value="<?php echo $github; ?>" />
+
+<?php
+
+}
+
+function linkedin() {
+
+	global $post;
+
+	$custom = get_post_meta($post->ID);
+
+	$linkedin = $custom["linkedin"][0];
+
+	?>
+
+	<input type="text" name="linkedin" value="<?php echo $linkedin; ?>" />
+
+<?php
+
+}
+
+add_action('save_post_social_media', 'save_details_post_social_media');
+
+function save_details_post_social_media(){
+
+	global $post;
+
+	update_post_meta($post->ID, "facebook", $_POST["facebook"]);
+
+	update_post_meta($post->ID, "twitter", $_POST["twitter"]);
+
+	update_post_meta($post->ID, "instagram", $_POST["instagram"]);
+
+	update_post_meta($post->ID, "github", $_POST["github"]);
+
+    update_post_meta($post->ID, "linkedin", $_POST["linkedin"]);
+
+}
+
+/**
+ * Register a custom menu page.
+ */
+function wpdocs_register_my_custom_menu_page(){
+    add_menu_page(
+        __( 'Custom Menu Title', 'textdomain' ),
+        'custom menu',
+        'manage_options',
+        'custompage',
+        'my_custom_menu_page',
+        'dashicons-admin-home',
+        plugins_url( 'myplugin/images/icon.png' ),
+        6
+    );
+}
+add_action( 'admin_menu', 'wpdocs_register_my_custom_menu_page' );
+
+/**
+ * Display a custom menu page
+ */
+function my_custom_menu_page(){
+    esc_html_e( 'Admin Page Test', 'textdomain' );
+}
+
+// Styling wp-login page
 function login_styles() { ?>
  <style type="text/css">
  body {
